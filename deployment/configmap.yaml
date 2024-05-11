@@ -5,7 +5,6 @@ metadata:
 data:
   DB_NAME: postgres
   DB_USER: postgres
-  # DB_HOST: "10.105.10.148"
   DB_HOST: "database-postgresql.default.svc.cluster.local"
   DB_PORT: "5432"
 ---

@@ -3,8 +3,7 @@ kind: Service
 metadata:
   name: coworking
 spec:
-  # A local environment doesn't generally have a LoadBalancer, so we use NodePort instead.
-  type: NodePort
+  type: LoadBalancer
   selector:
     service: coworking
   ports:
@@ -31,11 +30,8 @@ spec:
     spec:
       containers:
       - name: coworking
-        # Locally hosted docker image
         image: 805634972019.dkr.ecr.us-east-1.amazonaws.com/udacity:latest
-        imagePullPolicy: Never
-        # imagePullPolicy: Always
-        # imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         livenessProbe:
           httpGet:
             path: /health_check
